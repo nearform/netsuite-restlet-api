@@ -1,14 +1,30 @@
-![CI](https://github.com/nearform/hub-template/actions/workflows/ci.yml/badge.svg?event=push)
+![CI](https://github.com/nearform/netsuite-restlet-api/actions/workflows/ci.yml/badge.svg?event=push)
 
-# Hub Template
+# NetSuite RESTlet API
 
-A feature-packed template to start a new repository on the hub, including:
+A JavaScript API client library for NetSuite RESTlets.
 
-- code linting with [ESlint](https://eslint.org) and [prettier](https://prettier.io)
-- pre-commit code linting and commit message linting with [husky](https://www.npmjs.com/package/husky) and [commitlint](https://commitlint.js.org/)
-- dependabot setup with automatic merging thanks to ["merge dependabot" GitHub action](https://github.com/fastify/github-action-merge-dependabot)
-- notifications about commits waiting to be released thanks to ["notify release" GitHub action](https://github.com/nearform/github-action-notify-release)
-- PRs' linked issues check with ["check linked issues" GitHub action](https://github.com/nearform/github-action-check-linked-issues)
-- Continuous Integration GitHub workflow
+## Installation
+
+```bash
+npm i netsuite-restlet-api
+```
+
+## Usage
+
+The package is available to be consumed via both CommonJS and ESM modules. It exposes a single class named NetSuiteClient where a configuration has to be passed. Then you can invoke get method on the resulting object to fetch data from NetSuite restlet.
+
+```js
+import { NetSuiteClient } from 'netsuite-restlet-api'
+
+const client = new NetSuiteClient({
+  certificateId: 'your-certificate-id',
+  clientId: 'your-client-id',
+  tokenUrl: 'https://your-token-url',
+  privateKey: 'your-private-key'
+})
+
+const data = await client.get('https://your-restlet-url')
+```
 
 [![banner](https://raw.githubusercontent.com/nearform/.github/refs/heads/master/assets/os-banner-green.svg)](https://www.nearform.com/contact/?utm_source=open-source&utm_medium=banner&utm_campaign=os-project-pages)

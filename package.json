@@ -1,38 +1,64 @@
 {
-  "name": "hub-template",
+  "name": "netsuite-restlet-api",
   "version": "1.0.0",
-  "description": "Template to start a new repository on the hub",
-  "main": "index.js",
+  "description": "An API client library for NetSuite RESTlets.",
   "type": "module",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    "require": "./dist/cjs/index.cjs",
+    "import": "./dist/esm/index.js",
+    "default": "./dist/esm/index.js"
+  },
   "scripts": {
-    "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "clean": "rm -rf dist",
+    "build": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json && node scripts/rename-cjs.js",
+    "build:clean": "npm run clean && npm run build",
+    "lint": "eslint --ignore-pattern dist/",
+    "test": "node --import tsx --test --experimental-test-module-mocks test/**/*test.ts",
     "prepare": "husky"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nearform/hub-template.git"
+    "url": "git+https://github.com/nearform/netsuite-restlet-api.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Nearform",
+  "contributors": [
+    {
+      "name": "Mohammed Bilal Shareef",
+      "url": "https://github.com/bilalshareef",
+      "email": "bilalshareef.h@gmail.com"
+    }
+  ],
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nearform/hub-template/issues"
+    "url": "https://github.com/nearform/netsuite-restlet-api/issues"
   },
-  "homepage": "https://github.com/nearform/hub-template#readme",
+  "homepage": "https://github.com/nearform/netsuite-restlet-api#readme",
   "devDependencies": {
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
     "@eslint/js": "^9.20.0",
+    "@types/jsrsasign": "^10.5.15",
+    "@types/node": "^22.13.5",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-prettier": "^5.2.3",
     "globals": "^16.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.25.0",
+    "undici": "^7.4.0"
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint --cache --fix"
+  },
+  "dependencies": {
+    "jsrsasign": "^11.1.0"
   }
 }
