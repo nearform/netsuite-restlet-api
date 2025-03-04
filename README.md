@@ -18,10 +18,10 @@ The package is available to be consumed via both CommonJS and ESM modules. It ex
 import { NetSuiteClient } from 'netsuite-restlet-api'
 
 const client = new NetSuiteClient({
-    certificateId: 'your-certificate-id',
-    clientId: 'your-client-id',
-    tokenUrl: 'https://your-token-url',
-    privateKey: 'your-private-key'
+  certificateId: 'your-certificate-id',
+  clientId: 'your-client-id',
+  tokenUrl: 'https://your-token-url',
+  privateKey: 'your-private-key'
 })
 
 const data = await client.get('https://your-restlet-url')
