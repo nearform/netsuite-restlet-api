@@ -1,10 +1,14 @@
 import { beforeEach, before, afterEach, mock, describe, it } from 'node:test'
 import { MockAgent, setGlobalDispatcher } from 'undici'
 import assert from 'node:assert'
-import { MOCK_CONFIG, MOCK_NETSUITE_API_RESPONSE, MOCK_TOKEN_API_RESPONSE } from '../mocks'
+import {
+  MOCK_CONFIG,
+  MOCK_NETSUITE_API_RESPONSE,
+  MOCK_TOKEN_API_RESPONSE
+} from '../mocks'
 
 describe('NetSuiteClient.get', () => {
-  let kjurSignMock = mock.fn()
+  const kjurSignMock = mock.fn()
   let agent
   let NetSuiteClient
 

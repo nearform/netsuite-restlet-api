@@ -1,4 +1,4 @@
-import { Config } from "../src/types"
+import { Config } from '../src/types'
 
 export const MOCK_CONFIG: Config = {
   certificateId: 'some-certificate-id',
