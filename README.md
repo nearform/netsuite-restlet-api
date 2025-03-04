@@ -1,8 +1,8 @@
 ![CI](https://github.com/nearform/netsuite-restlet-api/actions/workflows/ci.yml/badge.svg?event=push)
 
-# NetSuite Restlet API
+# NetSuite RESTlet API
 
-A JavaScript API client library for NetSuite Restlets.
+A JavaScript API client library for NetSuite RESTlets.
 
 ## Installation
 

@@ -14,8 +14,6 @@ export default tseslint.config(
       },
       ecmaVersion: 'latest',
       sourceType: 'module'
-    },
-    files: ['src/**/*.ts', 'tests/**/*.ts'],
-    ignores: ['node_modules', 'dist']
+    }
   }
 )

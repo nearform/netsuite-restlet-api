@@ -1,7 +1,7 @@
 {
   "name": "netsuite-restlet-api",
   "version": "1.0.0",
-  "description": "An API client library for NetSuite Restlets.",
+  "description": "An API client library for NetSuite RESTlets.",
   "type": "module",
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.js",
@@ -11,15 +11,11 @@
     "import": "./dist/esm/index.js",
     "default": "./dist/esm/index.js"
   },
-  "files": [
-    "dist/**/*"
-  ],
   "scripts": {
     "clean": "rm -rf dist",
     "build": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json && node scripts/rename-cjs.js",
     "build:clean": "npm run clean && npm run build",
-    "lint": "eslint src/ test/",
-    "lint:fix": "eslint src/ test/ --fix",
+    "lint": "eslint --ignore-pattern dist/",
     "test": "node --import tsx --test --experimental-test-module-mocks test/**/*test.ts",
     "prepare": "husky"
   },

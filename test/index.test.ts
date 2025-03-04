@@ -58,7 +58,7 @@ describe('NetSuiteClient.get', () => {
     const client = new NetSuiteClient(MOCK_CONFIG)
     const response = await client.get('https://restlet.com/some-endpoint')
 
-    assert.deepEqual(response, MOCK_NETSUITE_API_RESPONSE)
+    assert.deepStrictEqual(response, MOCK_NETSUITE_API_RESPONSE)
   })
 
   it('Should reuse access token if present already', async () => {
