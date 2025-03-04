@@ -1,6 +1,6 @@
 {
   "name": "netsuite-restlet-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An API client library for NetSuite RESTlets.",
   "type": "module",
   "main": "dist/cjs/index.cjs",
