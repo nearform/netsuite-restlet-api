@@ -3,9 +3,6 @@
   "version": "1.0.2",
   "description": "An API client library for NetSuite RESTlets.",
   "type": "module",
-  "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
   "exports": {
     "require": "./dist/cjs/index.cjs",
     "import": "./dist/esm/index.js",
@@ -13,7 +10,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json && node scripts/rename-cjs.js",
+    "build": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json && node scripts/rename-cjs.js",
     "build:clean": "npm run clean && npm run build",
     "lint": "eslint --ignore-pattern dist/",
     "test": "node --import tsx --test --experimental-test-module-mocks test/**/*test.ts",
