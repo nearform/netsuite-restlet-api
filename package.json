@@ -9,7 +9,7 @@
     "default": "./dist/esm/index.js"
   },
   "files": [
-    "dist/*"
+    "dist"
   ],
   "scripts": {
     "clean": "rm -rf dist",
