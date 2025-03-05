@@ -8,6 +8,9 @@
     "import": "./dist/esm/index.js",
     "default": "./dist/esm/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "clean": "rm -rf dist",
     "build": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json && node scripts/rename-cjs.js",
