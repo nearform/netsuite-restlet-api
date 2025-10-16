@@ -26,6 +26,7 @@ jobs:
       - uses: nearform-actions/optic-release-automation-action@v4
         with:
           semver: ${{ github.event.inputs.semver }}
+          commit-message: 'chore: release {version}'
           build-command: |
             npm ci
             npm run build
