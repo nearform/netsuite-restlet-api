@@ -1,5 +1,5 @@
 import { beforeEach, before, afterEach, mock, describe, it } from 'node:test'
-import { MockAgent, setGlobalDispatcher } from 'undici'
+import { MockAgent, install, setGlobalDispatcher } from 'undici'
 import assert from 'node:assert'
 import {
   MOCK_CONFIG,
@@ -14,10 +14,23 @@ describe('NetSuiteClient.get', () => {
 
   beforeEach(() => {
     agent = new MockAgent()
+    // Turn an unmatched request into an explicit MockNotMatchedError instead of
+    // a live call. Note this only covers requests that reach MockAgent's
+    // interceptor layer; it does not catch a dispatcher-level bypass like the
+    // one described in the before() hook below.
+    agent.disableNetConnect()
     setGlobalDispatcher(agent)
   })
 
   before(async () => {
+    // Route globalThis.fetch through undici's own fetch so that MockAgent can
+    // intercept it. Node's built-in fetch reaches the global dispatcher through
+    // a wrapper that forces `allowH2: false`, which from undici 8.0.3 makes the
+    // agent look up an `<origin>#http1-only` client key that MockAgent never
+    // registers -- the request then escapes to the real network. See
+    // nodejs/undici#5036; the fix is merged but unreleased as of undici 8.10.0.
+    install()
+
     mock.module('jsrsasign', {
       namedExports: {
         KJUR: {
